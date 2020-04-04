@@ -3,12 +3,37 @@
 ### Exam guide
 [link](https://github.com/swoldetsadick/aws-certified-developer/blob/master/AWS_Certified_Developer_Associate-Exam_Guide_EN_1.4.pdf)
 
-### Create AWS Account
+1. Create AWS Account
+2. Set AWS Budget
+3. AWS Technologies Review
 
-### Set AWS Budget
-
-### AWS Technologies Review
-
+    a. Fundamentals for 3-tier web apps
+    
+    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    
+    b. developer tools
+    
+    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    
+    c. CI / CD with Monitoring and Infrastructure as Code
+    
+    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    
+    d. Application decoupling & integration
+    
+    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    
+    e. serverless paradigm
+    
+    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    
+    f. always secure
+    
+    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    
+    g. other services
+    
+    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
 
 # Section 3: AWS Fundamentals ( IAM - EC2 )
 ## 1. Section Introduction
