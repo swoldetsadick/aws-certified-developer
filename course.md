@@ -9,31 +9,31 @@
 
     a. Fundamentals for 3-tier web apps
     
-    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/1.PNG)
     
     b. developer tools
     
-    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/2.PNG)
     
     c. CI / CD with Monitoring and Infrastructure as Code
     
-    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/3.PNG)
     
     d. Application decoupling & integration
     
-    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/4.PNG)
     
     e. serverless paradigm
     
-    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/5.PNG)
     
     f. always secure
     
-    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/6.PNG)
     
     g. other services
     
-    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png)
+    ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/7.PNG)
 
 # Section 3: AWS Fundamentals ( IAM - EC2 )
 ## 1. Section Introduction
