@@ -1,7 +1,7 @@
 # Section 1: Introduction
 
 ### Exam guide
-[link](https://www.google.com)
+[link](https://github.com/swoldetsadick/aws-certified-developer/blob/master/AWS_Certified_Developer_Associate-Exam_Guide_EN_1.4.pdf)
 
 ### Create AWS Account
 
