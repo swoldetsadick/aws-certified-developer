@@ -217,3 +217,45 @@ Resolution: chmod 0400 ~/.ssh/EC2.pem
 ```
 
 **EC2 connect** is a **browser based SSH connection utility** that can be launched from "instances" page.
+
+#### Introduction to security groups
+
+**Security groups** is **fundamental to network security** in AWS.
+
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/11.PNG)
+
+They **control traffic allowed** into and out of EC2 and act like a **firewall** for EC2 instance.
+
+A security group :
+
+1. can be attached to multiple instances
+2. is locked to a region / VPC combo
+3. lives outside EC2 instance (so traffic is filtered before reaching EC2)
+4. misconfiguration is always the reason of of SSH timeout issues
+5. allows by default all inbound traffic and blocks all outbound traffic
+
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/12.PNG)
+
+Security groups regulate:
+
+1. access to ports
+2. authorized IP ranges both IPV4 and IPV6
+3. Inbound network
+4. outbound network
+
+**Referencing other security groups**
+
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/13.PNG)
+
+Referencing security groups from other security groups serves to allow all traffic from instances that have attached
+security in the allowed list whatever the IP range is.
+
+```
+Lab III
+
+1. Navigate to "instances" page and choose the right instance and click on the security group of your instance
+2. on security groups page, select the right security group
+3. Below one can see Details, Inbound rules, Outbound rules and Tags buttons
+4. Edit all Inbound and outbound rules to see changes
+```
+
