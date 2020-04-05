@@ -165,6 +165,23 @@ Goal: Launch virtual server in AWS Console
     D. Add Storage
     
     E. Tags
+        Tags are a key - value pairs for identification and classification of instances. (ex: Name)
     
     F. Security Groups
+        A security group is a set of firewall rules that control the traffic for your instance. On this page, you can add
+    rules to allow specific traffic to reach your instance. 
+    
+    G. Review and Launch
+        Review parameters
+
+    H. Launch
+        Create a key pair. A key pair is credentails that helps you ssh into your instance one can create a new one or
+        import and existing one.
+    
+    I. View Instance
+        In instance overview find your instance through Name tag and find green running. right-click on it and find
+        "instance state" in the dropdwon where you can [start, stop, stop-hibernte, reboot or terminate] the instance
 ```
+
+#### SSH Overview
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/9.PNG)
