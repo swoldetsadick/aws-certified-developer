@@ -52,6 +52,8 @@ which are **physical data centers** with **redundancy** creating **disaster safe
   
  Main components of IAM are **Users**, **groups** and **Roles** is **scoped globally** and is **center of AWS security.**
  
+ ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/8.PNG)
+ 
  * **Root users** have the **most power** and are **never to be used except for initial setup**
  * A **user** should **represent** one and only one **physical person**
  * **User** must be created with proper **permissions**
