@@ -185,3 +185,35 @@ Goal: Launch virtual server in AWS Console
 
 #### SSH Overview
 ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/9.PNG)
+
+How SSH works
+
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/10.PNG)
+
+EC2 will allow SSH only if:
+1. activated the public IP option
+2. if you set the right firewall rule (security group) for it
+
+
+```
+Lab II
+
+1. Navigate to instance overview page, find instance and click on it
+2. Get to IPv4 public IP and copy the IP adress xx.xx.xxx.xxx
+3. Get over to inbound rules on same page and see if port22 is open by security group
+4. Find the key pair you created for the instance in lab I (ex: ~/.ssh/EC2.pem
+
+chmod 0400 ~/.ssh/EC2.pem
+ssh -i ~/.ssh/EC2.pem ec2-user@xx.xx.xxx.xxx
+
+DEBUG:
+
+1. When downloding it the private key file is permissio 0644 which can throw "uprotected key file" error when doing SSH
+Resolution: chmod 0400 ~/.ssh/EC2.pem
+
+2. If you get connection timeout error it means that you have a security group issue or corporate firewall issues.
+
+3. Connection refused means that whether that instance is down or SSH utility is not installed on it
+```
+
+**EC2 connect** is a **browser based SSH connection utility** that can be launched from "instances" page.
