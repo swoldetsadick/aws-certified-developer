@@ -259,3 +259,124 @@ Lab III
 4. Edit all Inbound and outbound rules to see changes
 ```
 
+#### Private vs Public vs Elastic IP
+
+1. **Public IP**
+    i. public IP means **machine** will be **identified on the internet**
+    
+    ii. IP is **unique across the internet**
+    
+    iii. **can be geo-located**
+
+2. **Private IP**
+
+    i. private IP machine can **only be identified within the private network** only
+    
+    ii. IP must be **unique only across the private network**
+    
+    iii. but **2 different machines** on **separate private networks** can have the **same IP**
+    
+    iv. machines on private network usually **access** then **internet via** an **internet gateway (proxy)**
+    
+    v. only a **specific IP range can be used as private IP**
+    
+3. **Elastic IP**
+
+    i. when **stopping and starting** an **EC2** instance it can **change public IP**
+    
+    ii. if you **don't want it to change public IP** one can **use elastic IP**
+    
+    iii. an elastic IP is **a public IPv4 IP you own as long as you don't delete it**
+    
+    iv. it can only be **attached to one instance at a time**
+    
+    v. you can of course hide failure of software by re-assigning IP of failed instances
+    
+    vi. AWS allows up to 5 elastic IPs but the limit can be raised
+    
+    vii. Avoid using elastic IPs
+    
+      a. best use random public IP then assign a registered DNS to it
+    
+      b. or use a load balancer and not use public at all
+
+```
+Lab IV
+
+1. Navigate to "instances" page and choose the right instance 
+2. on "Description" tab find both private and public IP
+3. find green running and right-click on it
+4. find "instance state" in the dropdwon wherestop and then start back instance again
+5. on "Description" tab find both private and public IP observe that public IP has changed but not the private IP
+6. on the left panel find "Elastic IPs" under "Network & Security" button and click it
+7. click on allocate Elastic IP adress and then allocate button
+8. you can now select the new Elastic IP and on "tags" tab associate key called 'Name' to a name for the Elastic IP
+9. click on "Actions" button then "Associate Elastic IP address"
+ a. Ressource Type: choose instance
+ b. Instance: choose the ID of EC2 instance
+ c. Private IP address: Choose elastic IP
+and press "asscoiate" button and on "Elastic IP address" page you can see the elastic IP has been associated to your EC2 instance
+10. go to "instances" page find and click your instance and on "description" tab see that üublic IP has changed and that elastic IP fields is filled too with same IP
+11. check you can ssh to test and then stop and re-start your instance to see that public IP did not change
+12. right click on your instance agai "Dissociate Elastic IP address" option under "netwroking" once you stpped your instance
+13. restart your instance and see that elastic IP has gone and public IP has changed again
+14. Go to "Elastic IPs" page choose the Elatic IP you created click on "Actions" button and choose "Release Elastic IP"
+
+```
+
+#### Install Apache Server
+
+```
+Lab V
+
+sudo su
+yum update -y
+curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
+yum install nodejs
+npm install -g @angular/cli @angular/core
+ng new test
+npm run build --prefix /home/ec2-user/test
+yum install -y httpd.x86_64
+systemctl start httpd.service
+systemctl enable httpd.service
+cp test/dist/test/* /var/www/html/
+curl localhost:80
+
+update inbound rules for security groups of the insatnce to have an additional rule to allow http from anywhere via port 80
+in a broswer entre http://xx.xxx.xxx.xxx:80 where xx.xxx.xxx.xxx is the public IP of your instance you shuld see a page
+
+```
+
+#### EC2 User data
+
+```
+Lab VI
+
+* Start a new instance from scratch following Lab I but when you get to "user data option" pass it the text below with option text selected
+
+#!/bin/bash
+yum update -y
+curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
+yum install -y nodejs
+npm install -g @angular/cli @angular/core
+ng new test --routing=true --style=css --commit=false
+npm run build --prefix /home/ec2-user/test
+yum install -y httpd.x86_64
+systemctl start httpd.service
+systemctl enable httpd.service
+cp test/dist/test/* /var/www/html/
+
+* attach existing security group one created in previous lab
+* attach existing key pair from previous lab
+* wait the instance to finish initializing and and get the public IP then navigate to http://xxx.xxx.xxx.xxx:80
+
+```
+
+#### EC2 Instances Launch types
+
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/14.PNG)
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/15.PNG)
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/16.PNG)
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/17.PNG)
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/18.PNG)
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/19.PNG)
