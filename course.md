@@ -431,3 +431,10 @@ To Know:
 6. EC2 instances are billed by the second above threshold of 60 seconds and prices are given in hour.
 
 ### V. ELB, ASG and EBS volumes
+
+
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/20.PNG)
+
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/21.PNG)
+
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/22.PNG)
