@@ -380,3 +380,54 @@ cp test/dist/test/* /var/www/html/
 ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/17.PNG)
 ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/18.PNG)
 ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/19.PNG)
+
+#### EC2 pricing
+
+1. Pricing is given per hour and depends on:
+
+    - Region you are in
+    
+    - Instance type
+    
+    - Pricing Model (spot/on demand/reserved/scheduled/convertible/dedicated/dedicated host)
+    
+    - operating system
+    
+2. Billed by second with threshold of 60 seconds up
+
+3. Additional cost for things like (Storage, data transfer, fixed IP...)
+
+4. You do not pay if instance is stopped
+
+#### AMI
+
+We have a bunch of images that come with AWS, and we can use "User Data" to bootstrap but if you want to do it all the time use AMIs.
+
+You can use your own "custom AMI" for both Linux and Windows and can also share it or use other people's AMI
+
+AMI built are AWS Region specific
+
+#### EC2 Types
+
+EC2 types are specific combination of:
+1. RAM (Type, amount, generation)
+2. CPU (type, make, frequency, generation, core numbers)
+3. I/O (disk performance, EBS Optimization)
+4. Network (bandwidth, network latency)
+5. GPU
+
+M type has balanced these features and type are specialized in one or two of above components.
+T2/T3 are burstable types with accumulated CPU credits even though we have seen T2 unlimited.
+
+#### Resume
+
+To Know:
+
+1. How to SSH to EC2 with 0644 problem
+2. Properly use security groups
+3. Difference between private vs public vs elastic IPs
+4. User Data
+5. how AMIs enhance your OS
+6. EC2 instances are billed by the second above threshold of 60 seconds and prices are given in hour.
+
+### V. ELB, ASG and EBS volumes
