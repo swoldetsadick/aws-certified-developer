@@ -432,8 +432,35 @@ To Know:
 
 ### V. ELB, ASG and EBS volumes
 
+**Load balancers** are servers that **forward internet traffic to multiple servers** downstream
 
 ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/20.PNG)
+
+It **spreads network traffic load** across multiple downstream instances and **exposes only a single point of access** (DNS).
+It serves to **handle instance failure seamlessly** by doing **regular health check** of instances.
+It also enforces **stickiness with cookies** as well as provide **SSL termination** for HTTPS.
+It can provide **high availability across zones** and **separate public from private** network **traffic**.
+
+**Elastic Load Balancer (ELB)** is an EC2 instance that is a **managed load balancer**. Managed means that:
+    
+    1. AWS guarantees it works
+    2. AWS takes care of upgrades, maintenance and high availability
+    3. AWS provide easy configuration via UI
+
+the advantage over self-made load balancers being that it will **generate less maintenance** costs even if more expensive to setup and it **integrates well with other** compute and monitoring **services**.
+There exists **3 ELB types**:
+    
+    1. Classic Load Balancer (v1) - 2009
+    2, Application Load Balancer (v2) - 2016
+    3. Network Load Balancer (v2) - 2017
+    
+recommendation is to **use v2** load balancers
+One can set **internal (private) and an external (public) ELBs**
+
+#### Health Check
+
+Health checks are crucial to load balancers because they **enable the LB to know if** **instances are healthy and can receive traffic**
+Heath check is done usually on specific **port and route (usually /health)**
 
 ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/21.PNG)
 
