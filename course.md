@@ -485,7 +485,7 @@ Heath check is done usually on specific **port and route (usually /health)**
 #### Network Load Balancer (NLB)
 
 * NLB allows to:
-   1. forwards TCP traffic to your instances (Target Groups) [Layer 4 TCP]
+   1. forwards TCP/TLS/UDP traffic to your instances (Target Groups) [Layer 4 TCP]
    2. Handles millions of requests per seconds - High availability
    3. supports static or Elastic IP
    4. Less latency approx. 100ms ( vs 400 ms for ALB)
@@ -495,7 +495,7 @@ Heath check is done usually on specific **port and route (usually /health)**
 
 ~~Resume:~~
 
-* **CLB are deprecated** use **ALB for HTTP/HTTPS** and websockets and **NLB for TCP**
+* **CLB are deprecated** use **ALB for HTTP/HTTPS** and websockets and **NLB for TCP/TLS/UDP**
 * **CLB and ALB support SSL certification** and provide SSL termination
 * All LBs have **health check capabilities**
 * ALB can **route** based **on hostname / route**
@@ -507,5 +507,27 @@ Heath check is done usually on specific **port and route (usually /health)**
 * **5xx** are **application** induced **errors** ( - Load balancer error **503** means **at capacity or no registered target**) 
 
 ```
-Lab 
+Lab VII
+
+* on the left pane find "Load balancer" option under "load balancing"
+* click on "create load balancer" button
+* in "Application load balancer" column click create
+* give instance a name and choose "internet facing" (for public ELB and choose "internal" for private)
+   -> IP adress type (IPv4 or dualstack)
+   -> in "Listeners" list all protocol-port pair we want ELB t listen on
+   -> "avail. zone" use all 3 zones for high avail.
+   -> VPC (?)
+   -> add at least "Name" tag
+* pass configure security settings to configure security groups and go to create security group.
+   -> give name and description
+   -> give type (protocol, port, source)
+* create target group for instance and heath check can be done in advanced settings
+* ON "register targets" "add to registered" instances of choice
+* then click "review" for review and then "create"
+* Navigate back to "Load balancers" page and wait for state to be "provisioned"
+* now you can connect both via IP and DNS of the LB so resctrict access via IP via security group of instance by
+reducing its security group's inbound rule source for http 80 to be only coming from LB
+
 ```
+
+
