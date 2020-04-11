@@ -681,3 +681,45 @@ Lab VIII - ASG
 
 #### RDS vs Aurora
 ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/28.PNG)
+
+### AWS Elasticache
+1. Elasticache is a AWS managed service for inmem Ds
+2. caches are in-mem DBs with high performance and low latency
+3. they help reduce load from RDS for read intensive application
+4. helps makes applications stateless  (by storing states)
+5. write scaling by using sharding
+6. read scaling by using read replicas
+7. multi AZ with failover
+8. AWS takes care of maintenance, backup, recovery...
+
+#### Solution Architecture - As RDS intermediary
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/29.PNG)
+
+1. application queries elasticache if not avail. gets query from RDS and writes it to cache (cache hit - cache miss)
+2. helps relieve load from RDS
+3. apps must have built-in invalidation strategies
+
+#### Solution Architecture - As RDS intermediary
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/30.PNG)
+
+#### REDIS
+1. REDIS is an in-mem key-value store
+2. super low latency (below ms.)
+3. cache survives reboots by default (persistency)
+4. Great to host:
+    a. user sessions
+    b. leaderboards
+    c. distributed states
+    d. relieve pressure from RDS
+    e. pub/sub for messaging
+* supports read replicas
+* multi AZ failover
+
+#### Memcached
+
+* memcached is an im-mem object store
+* cache does not survive reboot
+* use cases:
+    a. quick retrieval of objects
+    b.caching often accessed objects
+* prefer REDIS
