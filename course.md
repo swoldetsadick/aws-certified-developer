@@ -625,3 +625,17 @@ Lab VIII - ASG
 * EBS backups use I/O and you should not run them while app is handling traffic
 * Root EBS volumes of instances get terminated by default if the EC2 instances get terminated
 
+### Route 53
+* Route 53 is a managed DNS
+* DNS is a collection of rules and records which helps clients understand how to reach a server thorough a URL
+* AWS most common URLs:
+    1. A URL to IPv4
+    2. AAAA URL to IPv6
+    3. CNAME URL to URL
+    4. Alias URL to AWS resource
+
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/25.PNG)
+
+* Route 53 can use **public domain** and **private domain** (resolvable only within VPC)
+* Route 53 is used as **LB through DNS** (or Client LB) can make **health checks** and handles **routing policy**.
+* Prefer Alias over CNAME for AWS ressources
