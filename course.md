@@ -530,4 +530,45 @@ reducing its security group's inbound rule source for http 80 to be only coming 
 
 ```
 
+### ASG
+
+* The goal of an ASG is to:
+    1. scale out (add EC2 instances) to match increment in load
+    2. scale-in (reduce EC2 instance) to match reduce in load
+    3. Ensure we have a min and ma machines running (min, max and desired)
+    4. automatically register new instance to load balancer
+
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/23.PNG)
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/24.PNG)
+
+#### Attributes
+1. A launch configuration (AMI + instance type, EC2 user data, EBS volumes, security groups, SSH key pairs...)
+2. Min/ Max / Desired capacity
+3. Network + subnet information
+4. Load balancer information
+
+#### Alerts
+1. Possible to scale an ASG based on Cloudwatch alarms
+2. An alarm monitors a metric (such as number of users)
+3. Metric are calculated overall ASG instances
+4. Based on the alarms one can create:
+    a. scale-out policies
+    b. scale-in policies
+
+#### Auto-Scaling new rules
+1. Possible to define better auto-scaling rules that are directly managed by EC2:
+    a. avg. CPU usage
+    b. Number of requests on the ELB per instances
+    c. avg. network in
+    d. avg. network out
+2. rules easier to setup and more intuitive to understand
+
+#### Auto-Scaling with custom metrics
+1. sends custom metric from application (in EC2) to Cloudwatch (put metric API)
+2. create Cloudwatch alarms to react to low / high values
+3. use Cloudwatch alarms as the scaling policy for ASG
+
+
+ 
+
 
