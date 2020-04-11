@@ -752,4 +752,24 @@ cons:
     2. cache burn as not all data in cache in needed
 
 ### AWS VPC
+* within a region ability to create VPC
+* Each VPC has a subnet which is a network
+* Each subnet is mapped to a specific AZ
+* it is common to have multiple subnets per AZ
+* it is common to have public and private subnets
 
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/33.PNG)
+
+* public subnets contain [LBs, static websites, files, auth layers...]
+* private subnets contain [App. server, web server, databases...]
+
+#### ~~Resume~~
+* All new accounts come with a default VPC
+* possible to use VPN to connect to VPC and access from own computer
+* VPC flow logs to monitor network activity inside, in and out
+* subnets per account and AZ
+* some resources are deployed in VPC while others are not
+* you can peer VPC (within or across many account) to make it look like they are of same network
+
+### 3-tier architecture
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/34.PNG)
