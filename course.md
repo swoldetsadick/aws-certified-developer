@@ -568,7 +568,45 @@ reducing its security group's inbound rule source for http 80 to be only coming 
 2. create Cloudwatch alarms to react to low / high values
 3. use Cloudwatch alarms as the scaling policy for ASG
 
+#### ~~Resume~~
+* scaling policies can be on (CPU, network...) and can even be on custom metrics or schedule
+* ASG use launch configuration and you update an ASG by providing a new launch configuration
+* IAM roles attached get transferred from ASG to instances
+* ASG are free
+* If instances are killed by accident ASG can reboots them (so extra safety)
+* ASG kills automatically instances marked as unhealthy  by ASG
 
- 
+#### EBS Volumes
+* An EC2 machine loses its root volume (main drive) when it is terminated, if you need data persistence across shutdown then use EBS volumes.
+* Elastic Block Store is a network drive you can attach to your instance while they run
+* it allows EC2 to perists data
+* it is a network drive (not a physical drive)
+    1. it uses network to communicate (so a bit latency)
+    2. can be detached from instance and re-attached to new one
+* Locked to an AZ (moved across via snapshots)
+* Have provisioned capacity (size in GBs and IOPS) and billed for all provisioned capa
+* EBS volumes are 4 types:
+    1. GP2 (SSD) Balance price and performance
+    2. IOI (SSD) for databases
+    3. STI (HDD) Big data (hot storage)
+    4. SCI (HDD) Big data (cold storage)
+* EBS characterized by size | throughput | IOPS
+* EBS can be resized (size and IOPSonly for IOI)
+* After re-size you need to re-partition 
+* EBS can be backed-up using snapshots
+* snapshots only take the actual space of the block on the volume
+
+#### EBS Encryption
+
+1. Data is encrypted at rest via KMS (AES-256) keys
+2. Data is encrypted at flight between EBS and instances via TLS
+3. All snapshots are encrypted too
+4. volumes created from encrypted snapshots are also encrypted
+
+* Encryption and decryption handled transparently (nothing to do for user)
+* Has minimum impact on latency
+
+#### EBS instance store
+
 
 
