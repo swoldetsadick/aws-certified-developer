@@ -576,6 +576,10 @@ reducing its security group's inbound rule source for http 80 to be only coming 
 * If instances are killed by accident ASG can reboots them (so extra safety)
 * ASG kills automatically instances marked as unhealthy  by ASG
 
+```
+Lab VIII - ASG
+```
+
 #### EBS Volumes
 * An EC2 machine loses its root volume (main drive) when it is terminated, if you need data persistence across shutdown then use EBS volumes.
 * Elastic Block Store is a network drive you can attach to your instance while they run
@@ -607,6 +611,17 @@ reducing its security group's inbound rule source for http 80 to be only coming 
 * Has minimum impact on latency
 
 #### EBS instance store
+* some instances do not come with root EBS volume but an instance store instead
+* an instances store is physically attached to the machine
+    pro: Better I/O perforamce
+    cons: on termination instance store is lost, not re-sizable, backups are hard to manipulate
+* EBS- backed instances should be the norm
 
+#### ~~Resume~~
 
+* EBS can be attached to only one instance at a time
+* EBS are locked at the AZ level
+* Migrating an EBS volume across AZ means first backing it up (snapshot) then re-creating it in the other AZ
+* EBS backups use I/O and you should not run them while app is handling traffic
+* Root EBS volumes of instances get terminated by default if the EC2 instances get terminated
 
