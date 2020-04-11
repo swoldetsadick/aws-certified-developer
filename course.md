@@ -716,10 +716,40 @@ Lab VIII - ASG
 * multi AZ failover
 
 #### Memcached
-
 * memcached is an im-mem object store
 * cache does not survive reboot
 * use cases:
     a. quick retrieval of objects
     b.caching often accessed objects
 * prefer REDIS
+
+### Elasticache Strategies
+1. Elastic cache is excellent for read intensive application
+2. Elastic cache is excellent for compute intensive workloads
+3. There are 2 patterns (caching strategies) for elasticache:
+    a. Lazy loading
+    b. Write through
+4. use different architecture based on the kind of application
+
+#### Lazy loading
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/31.PNG)
+
+pros:
+    1. only requested data is cached
+    2. node failure are not fatal
+cons:
+    1. cache miss penalty results in 3 round trips
+    2. stale data can happen (so implement TTL)
+
+#### write through
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/32.PNG)
+
+pros:
+    1. data in cache is never stale
+    2. write penalty costs 2 round trips but no read penalties
+cons:
+    1. data can be miss until added or updated in DB (mitigate by implementing also LL)
+    2. cache burn as not all data in cache in needed
+
+### AWS VPC
+
