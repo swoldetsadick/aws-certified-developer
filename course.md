@@ -629,7 +629,7 @@ Lab VIII - ASG
 * Route 53 is a managed DNS
 * DNS is a collection of rules and records which helps clients understand how to reach a server thorough a URL
 * AWS most common URLs:
-    1. A URL to IPv4
+    1. A URL to IPv4AWSRDS
     2. AAAA URL to IPv6
     3. CNAME URL to URL
     4. Alias URL to AWS resource
@@ -638,4 +638,46 @@ Lab VIII - ASG
 
 * Route 53 can use **public domain** and **private domain** (resolvable only within VPC)
 * Route 53 is used as **LB through DNS** (or Client LB) can make **health checks** and handles **routing policy**.
-* Prefer Alias over CNAME for AWS ressources
+* Prefer Alias over CNAME for AWS resources
+
+### RDS
+* Relational database service is a managed DB services for DB that use SQL
+* Create DB in the clod managed by AWS (postgres, oracle, mysql, MariaDB, MySQL, Aurora...)
+* Managed services meaning: OS patching, continuous backup, monitoring, read replicas, multi AZ setup for DR...
+* But cannot ssh directly to them
+
+#### RDS Replicas for read scaling
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/26.PNG)
+1. upto 5 replicas
+2. with AZ, cross AZ or Region
+3. Replication is async
+4. each replica can become its own db
+5. one needs to update connection string to leverage read replicas
+
+#### RDS multi AZ - disaster recovery
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/27.PNG)
+1. sync replication
+2. one DNS name so no manual intervention in app to update connection string
+3. increase of avail.
+4. Failover in case of loss of AZ
+5. Not used for scaling
+
+#### RDS encryption
+1. Encryption at rest via AWS KMS that leverages AES 256 encryption
+2. SSL certificates to encrypt data in RDS in flight
+3. to enforce SSL
+    a. postgresql rds.force.ssl=1
+    b. mysql GRANT USAGE ON *.* TO 'user'@'@'% REQUIRE SSL
+4. to connect using SSL
+    a. Download SSL on AWS website
+    b. provide SSL options when connecting to DB
+
+#### RDS Security
+1. usually deplyoed within private VPC and not avail. from public but can be
+2. RDS security works via security groups
+3. IAm policy helps control who can manage AWS RDS
+4. Traditional username and password can be used to login to the DB
+5. IAM users can also be used too
+
+#### RDS vs Aurora
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/28.PNG)
