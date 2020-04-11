@@ -758,7 +758,7 @@ cons:
 * it is common to have multiple subnets per AZ
 * it is common to have public and private subnets
 
-![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/33.PNG)
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/33.png)
 
 * public subnets contain [LBs, static websites, files, auth layers...]
 * private subnets contain [App. server, web server, databases...]
@@ -772,4 +772,6 @@ cons:
 * you can peer VPC (within or across many account) to make it look like they are of same network
 
 ### 3-tier architecture
-![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/34.PNG)
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/34.png)
+
+### Amazon S3
