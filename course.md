@@ -775,3 +775,58 @@ cons:
 ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/34.png)
 
 ### Amazon S3
+
+#### S3 - Buckets
+* S3 allows to store objects (files) in "buckets" (directories)
+* Buckets must have a globally unique name
+* S3 is global but bucket is regional
+* Naming convention:
+    a. No uppercase
+    b. no underscore
+    c. 3 to 36 characters
+    d. No IPs
+    e. must start with lower or number
+
+#### S3 - Objects
+* objects are files that have keys that are in turn full paths
+* no concept of directories however mimicked by keys
+* object value are the content of body:
+    a. Max size is 5TB
+    b. if upload is more than 5GB use multipart for upload and download
+* metadata (list of text key / value pairs) for system or user metadata
+* tags (unicode key value pair up to 10) good for security and lifecycle
+* version ID
+
+#### S3 Encryption
+There are 4 types of encryption:
+1. SSE - S3
+    * SSE-S3 encryption using keys handled and managed by AWS S3
+    * objects are encrypted serve-side
+    * AES-256
+    * must set header: "x-amz-server-side-encryption":"AES256"
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/35.png)
+2. SSE - KMS
+    * SSE-KMS encryption using keys handled and managed by KMS
+    * SSE-KMS advantages are user control and audit trail
+    * object is encrypted server side
+    * must set header: "x-amz-server-side-encryption":"aws:kms"
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/36.png)
+3. SSE - C
+    * SSE - C server-side encryption using data and keys fully managed by the customer
+    * AWS S3 does not store the encryption key you provide
+    * HTTPS must be used
+    * encryption key must be provided  in HTTP header with each request
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/37.png)
+4. client side encryption
+    * client library such as Amazon S3 encryption client is used
+    * client must encrypt data before sending to s3
+    * client must decrypt data at retrieval
+    * customer fully manages the keys and encryption cycle
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/38.png)
+5. encryption in flight
+    * AWS exposes HTTP endpoint (non-encrypted) and HTTPS endpoints (encryption in flight)
+    * HTTPS is recommended
+    * HTTPs is mandatory for SSE-C
+
+#### S3 Security
+
