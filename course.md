@@ -850,4 +850,6 @@ There are 4 types of encryption:
 * **user security**: **MFA** can be required in **versioned buckets to delete objects** and **signed URL** can be used to create **time limited valid URLS**
 
 #### S3 websites   
-
+ * S3 can host static websites and have them accessible via www
+ * the website url would be <bucket-name>.s3-website- (or .) <aws Region>.amazonaws.com
+ * 403 forbidden error make sure the bucket policy allows public reads
