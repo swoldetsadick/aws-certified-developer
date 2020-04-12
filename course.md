@@ -853,3 +853,17 @@ There are 4 types of encryption:
  * S3 can host static websites and have them accessible via www
  * the website url would be <bucket-name>.s3-website- (or .) <aws Region>.amazonaws.com
  * 403 forbidden error make sure the bucket policy allows public reads
+
+#### S3 CORS
+* if request data from another S3 bucket you need CORS
+* CORS allows to limit the number of websites that can request your files in S3
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/39.png)
+
+#### S3 consistency model
+* read after write consistency for PUT new objects
+    PUT 200 -> GET 200 (always)
+    GET 404 -> PUT 200 -> GET 404 (sometimes because consistency eventual - first get result is cached)
+* Eventual consistency for DELETEs and PUTs of existing objects
+
+#### S3 Performance
+
