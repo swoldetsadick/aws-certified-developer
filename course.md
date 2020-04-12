@@ -829,4 +829,25 @@ There are 4 types of encryption:
     * HTTPs is mandatory for SSE-C
 
 #### S3 Security
+* user based using IAM policies to limit what a user can do against S3
+* resource based
+    1. bucket policy
+    2. object access control list
+    3. bucket access control list
+
+#### S3 bucket policy
+* JSON based policies
+    1. defined on **resources** (buckets or objects)
+    2. define **actions** on APIs
+    3. that have **effect** allow or deny
+    4. for some **principal** or user
+* Use S3 bucket for policy to:
+    1. grant public access to public
+    2. force objects to be encrypted at upload
+    3. grant access to another account (cross-account access)
+* **Networking**: supports **VPC endpoint** (instances can access S3 within VPC even if they have no internet access)
+* **Logging & Audit**: **S3 access logs** can be **stored in another S3** and **API calls** can be **logged in Cloudtrail**
+* **user security**: **MFA** can be required in **versioned buckets to delete objects** and **signed URL** can be used to create **time limited valid URLS**
+
+#### S3 websites   
 
