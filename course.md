@@ -866,4 +866,18 @@ There are 4 types of encryption:
 * Eventual consistency for DELETEs and PUTs of existing objects
 
 #### S3 Performance
-
+* scale up to 3500 RPS for PUT and 5500 RPS for GET per each prefix
+* No need to randomize to up performance via better partitioning
+* Faster uploads of large objects (**use multipart upload**)
+    a. parallelize PUT
+    b. maximize network bandwidth & efficiency
+    c. decrease time to retry in case of failure
+    d. must after 5GB anyways
+ * use **cloudfront** to cache S3 object globally **(improve read)**
+ * **S3 transfer accelerator** for cross region upload
+ * if using SSE-KMS encryption and limited in write please raise limits of KMS in AWS
+ 
+ #### AWS Glacier
+ ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/40.png)
+ 
+ ### AWS CLI, SDK, IAM Roles & Policies
