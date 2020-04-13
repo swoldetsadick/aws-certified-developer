@@ -881,3 +881,27 @@ There are 4 types of encryption:
  ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/40.png)
  
  ### AWS CLI, SDK, IAM Roles & Policies
+* IAM roles are attached to EC2 instances
+* IAM roles can come with a policy authorizing exactly what an EC2 can do
+
+* AWS CLI know that policy simulator or --dry-run exist
+* STS decode-authorization-message
+
+#### EC2 Instance Metadata
+*  Allows EC2 instances to learn about themselves
+* http://169.254.169.254/latest/meta-data
+* can retrieve IAm role name but not policy JSON
+* metadata is information about the EC2 itself
+
+#### EC2 SDK
+* AWS CLI is using **python SDK**
+* **us-east-1** is default
+* default **credentials provider chain** are:
+    a. AWS credentials
+    b. IAM roles
+    c. env variables
+* **exponential backoff** for API call fails
+* **AWS CLI profiles** ````aws configure --profile work````
+
+### AWS Beanstalk
+
