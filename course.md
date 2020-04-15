@@ -887,6 +887,8 @@ There are 4 types of encryption:
 * AWS CLI know that policy simulator or --dry-run exist
 * STS decode-authorization-message
 
+ ![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/41.png)
+ 
 #### EC2 Instance Metadata
 *  Allows EC2 instances to learn about themselves
 * http://169.254.169.254/latest/meta-data
@@ -904,4 +906,21 @@ There are 4 types of encryption:
 * **AWS CLI profiles** ````aws configure --profile work````
 
 ### AWS Beanstalk
-
+* Elastic Beanstalk is a developer centric view of deployment of applications
+* Elastic Beanstalk is free
+* Elastic Beanstalk is managed service meaning:
+    1. instance config and OS is handled by BS
+    2. Deployment strategy is configurable but performed by BS
+    3. Application code is yor only responsibility
+* 3 architectures are proposed:
+    1. Single instance deployment (for dev)
+    2. LB + ASG (for prod and pre-prod webapps)
+    3. ASG only for non-webapps in prod
+* Has 3 components:
+    1. Application
+    2. Application version
+    3. Env. name
+* you deploy app. version and promote app. version to next environment
+* Rollback
+* Full control over lifecycle of env.
+![alt text](https://github.com/swoldetsadick/aws-certified-developer/blob/master/images/42.png)
